@@ -1,4 +1,4 @@
-# 프롬프트 작성 원칙 (P01~P14)
+# 프롬프트 작성 원칙 (P01~P16)
 
 Prompt Engineer가 변경 이유를 설명할 때 근거로 쓰는 목록입니다. 공부할 때는 이 문서를 처음부터 한 번 읽고, 이후에는 결과 설명에 나온 원칙 ID를 찾아보세요.
 
@@ -8,6 +8,7 @@ Prompt Engineer가 변경 이유를 설명할 때 근거로 쓰는 목록입니�
 
 | 항목 | 질문 | 관련 원칙 |
 |---|---|---|
+| 원본 상태 | 내용이 없나, 목소리가 이미 있나, 일부만 고치면 되나? | P15 |
 | 목적 | 무엇을, 왜 만드는지 분명한가? | P02, P03 |
 | 독자 | 결과물을 누가 읽고 보는가? | P04 |
 | 맥락 | 모델이 모르는 배경(브랜드, 상황)을 주었는가? | P03 |
@@ -18,7 +19,7 @@ Prompt Engineer가 변경 이유를 설명할 때 근거로 쓰는 목록입니�
 | 복잡도 | 여러 작업을 한 번에 시키지 않는가? | P09, P13 |
 | 제약 | 법규, 브랜드, 금지 표현이 들어갔는가? | P10 |
 | 재사용 | 바뀌는 값이 변수로 빠져 있는가? | P11 |
-| 검증 | 결과를 스스로 점검할 기준이 있는가? | P12, P14 |
+| 검증 | 결과를 스스로 점검할 기준이 있는가? | P12, P14, P16 |
 
 ## 원칙
 
@@ -63,6 +64,34 @@ Prompt Engineer가 변경 이유를 설명할 때 근거로 쓰는 목록입니�
 
 ### P14. 지어내지 못하게 막는다
 "주어진 자료에 없는 수치나 사례는 만들지 말고 [확인 필요]로 표시해". 마케팅 문구에 가짜 통계가 들어가는 사고를 막습니다.
+
+### P15. 고치기 전에 원본 상태를 진단한다
+원본이 A(내용이 거의 없음)인지, B(관점이나 목소리가 이미 있음)인지, C(일부만 고치면 됨)인지 먼저 판정합니다. 이 판정에 따라 바꿀 범위가 정해집니다. 나쁜 AI 결과물의 상당수는 사용자가 이미 잘 정한 것을 모델 취향대로 갈아엎는 데서 나옵니다. 고친 부분마다 "더 나아졌나, 아니면 그냥 달라졌나?"를 묻고, 이유를 댈 수 없는 변경은 되돌립니다.
+
+### P16. 문장마다 세 질문으로 거른다
+① 독자가 그림을 떠올릴 수 있나? ② 참·거짓을 따질 수 있나? ("업계 최고"는 따질 수 없는 장식) ③ 경쟁사도 똑같이 쓸 수 있나? 셋 다 통과하면 유지하고, 하나 이하면 사실에서 다시 쓰거나 `[NEED: ...]`로 빠진 근거를 표시합니다.
+
+> P15·P16 출처: [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills)의 copywriting 스킬(MIT 라이선스). 그 스킬은 Profound의 improved-copywriting 스킬(MIT)을 바탕으로 했다고 밝히고 있습니다. 이 문서의 설명은 한국어로 다시 쓴 것입니다.
+
+## 공부할 교재: Anthropic 공식 프롬프트 튜토리얼
+
+[anthropics/prompt-eng-interactive-tutorial](https://github.com/anthropics/prompt-eng-interactive-tutorial)은 Anthropic이 만든 9장짜리 실습 교재입니다(영어). 원칙마다 아래 장을 함께 보면 됩니다.
+
+| 원칙 | 튜토리얼 장 |
+|---|---|
+| P01 | 3장 Assigning Roles (Role Prompting) |
+| P02, P03, P04, P07 | 2장 Being Clear and Direct |
+| P05, P11 | 4장 Separating Data and Instructions (변수와 템플릿 포함) |
+| P06 | 5장 Formatting Output and Speaking for Claude |
+| P08 | 7장 Using Examples (Few-Shot Prompting) |
+| P09 | 6장 Precognition (Thinking Step by Step) |
+| P10 | 9장 Complex Prompts from Scratch |
+| P12, P13 | 부록 10.1 Chaining Prompts |
+| P14 | 8장 Avoiding Hallucinations |
+
+참고:
+- 실습 노트북을 실행하려면 Anthropic API 키가 필요합니다. 읽기만 해도 각 장의 설명과 예시로 공부할 수 있습니다.
+- 교재는 이전 세대 모델을 기준으로 작성되었습니다. 원칙은 지금도 유효하지만, 강조 표현에 대한 반응 같은 세부 동작은 최신 모델과 다를 수 있습니다.
 
 ## 흔한 오해
 
