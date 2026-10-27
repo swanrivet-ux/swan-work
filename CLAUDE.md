@@ -10,3 +10,4 @@
 - 재무제표, 수익성, 투자 효과 분석이 필요하면 해당 단계에 Financial Analyst를 추가한다.
 - 지역상생, ESG, 사회적 가치 관련 내용이 있으면 해당 단계에 ESG & Sustainability Officer를 추가한다. 탄소 배출 산정은 요청할 때만 한다.
 - Chief Financial Officer는 내가 "최종 검토"라고 요청할 때만 마지막 단계로 쓴다.
+- 프롬프트를 가져와 수정·정리하는 작업은 Prompt Engineer에게 맡긴다(`/prompt-fix`). 결과 프롬프트와 함께 변경 이유와 적용 원칙을 학습용으로 설명한다.
